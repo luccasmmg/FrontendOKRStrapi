@@ -3,8 +3,8 @@ import { fetchUtils, Admin as ReactAdmin, Resource } from 'react-admin';
 import simpleRestProvider from 'ra-strapi-rest';
 import authProvider from './authProvider';
 
-import { ObjectivesList } from './Objectives';
-import { KeyResultList } from './KeyResults';
+import { ObjectivesList, CreateObjective, EditObjective } from './Objectives';
+import { KeyResultList, CreateKeyResult, EditKeyResult } from './KeyResults';
 
 const httpClient = (url: any, options: any) => {
   if (!options) {
@@ -26,10 +26,20 @@ export const Admin: FC = () => {
         <Resource
             name="objetivos"
             list={ObjectivesList}
+            create={CreateObjective}
+            edit={EditObjective}
         />
         <Resource
             name="resultado-chaves"
             list={KeyResultList}
+            create={CreateKeyResult}
+            edit={EditKeyResult}
+        />
+        <Resource
+            name="tarefas"
+        />
+        <Resource
+            name="users"
         />
     </ReactAdmin>
   );
