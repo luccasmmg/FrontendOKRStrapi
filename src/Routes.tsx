@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Login, PrivateRoute } from './views';
-import { AddObjective, Admin } from './admin';
+import { Admin } from './admin';
 import { logout } from './utils/auth';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,9 +29,10 @@ export const Routes: FC = () => {
 
   return (
     <Switch>
+      <Route path="/admin"><Admin /></Route>
       <div className={classes.app}>
         <header className={classes.header}>
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={Admin} />
           <Route
             path="/logout"
             render={() => {
@@ -40,8 +41,6 @@ export const Routes: FC = () => {
               return null;
             }}
           />
-          <PrivateRoute path="/admin" component={Admin} />
-          <PrivateRoute path="/objetive" component={AddObjective} />
           <Route exact path="/" component={Login} />
         </header>
       </div>

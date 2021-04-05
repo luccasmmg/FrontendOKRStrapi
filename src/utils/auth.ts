@@ -11,7 +11,7 @@ export const isAuthenticated = () => {
 /**
  * Login to backend and store JSON web token on success
  *
- * @param email
+ * @param identifier
  * @param password
  * @returns JSON data containing access token on success
  * @throws Error on http errors or failed attempts

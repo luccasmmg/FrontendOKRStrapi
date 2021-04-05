@@ -1,43 +1,36 @@
-import React, { FC, useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { fetchPOST } from '../utils/api';
+import React, { FC } from 'react';
+import { fetchUtils, Admin as ReactAdmin, Resource } from 'react-admin';
+import simpleRestProvider from 'ra-strapi-rest';
+import authProvider from './authProvider';
 
-const useStyles = makeStyles((theme) => ({
-    link: {
-      color: '#61dafb',
-    },
-  }));
+import { ObjectivesList } from './Objectives';
+import { KeyResultList } from './KeyResults';
 
-export const Admin = () => {
-    const [objetives, setObjectives] = useState([])
-    const classes = useStyles();
+const httpClient = (url: any, options: any) => {
+  if (!options) {
+    options = {};
+  }
+  if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+  const token = localStorage.getItem('token');
+  options.headers.set('Authorization', `Bearer ${token}`);
+  return fetchUtils.fetchJson(url, options);
+};
 
-    useEffect(async () => {
-        const newObjectives = await fetch("/objetivos")
-        const data = await newObjectives.json()
-        setObjectives(objetives.concat(data))
-    }, [])
+const dataProvider = simpleRestProvider('', httpClient);
 
-    const data = {
-        Nome: "teste",
-        Descricao: "string",
-        DataFim: "2021-04-03",
-        DataInicio: "2021-04-03",
-        Responsavel: "string",
-        Categoria: "pessoal",
-    }
-    
-    const addObjective = async () => {
-        const newObjectives = await fetchPOST("objetivos", data)
-        setObjectives(objetives.concat(newObjectives))
-    }
-    return(
-        <>
-        {objetives.map(objective => (<p>{objective.Nome}</p>))}
-        <button onClick={() => addObjective()}>Clique aqui</button>
-        <a className={classes.link} href="/logout">
-          Logout
-        </a>
-        </>
-    )
-}
+export const Admin: FC = () => {
+  return (
+    <ReactAdmin dataProvider={dataProvider} authProvider={authProvider}>
+        <Resource
+            name="objetivos"
+            list={ObjectivesList}
+        />
+        <Resource
+            name="resultado-chaves"
+            list={KeyResultList}
+        />
+    </ReactAdmin>
+  );
+};
