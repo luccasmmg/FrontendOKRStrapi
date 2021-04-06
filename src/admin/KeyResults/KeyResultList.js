@@ -33,10 +33,10 @@ export const KeyResultList: FC = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit" expand={<ListOfAssignments />}>
       <TextField source="id" />
-      <TextField source="objetivo.Nome" />
+      <TextField label="Objetivo" source="objetivo.Nome" />
       <TextField source="nome" />
       <TextField source="descricao" />
-      <TextField source="responsavel.username" />
+      <TextField label="Responsável" source="responsavel.username" />
       <Tags source="Tags" />
       <DeleteButton label="Deletar" />
     </Datagrid>

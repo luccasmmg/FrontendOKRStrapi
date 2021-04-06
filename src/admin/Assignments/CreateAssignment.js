@@ -1,3 +1,4 @@
+import SelectInput from '@material-ui/core/Select/SelectInput';
 import React, { FC } from 'react';
 import {
     Create,
@@ -12,7 +13,13 @@ export const CreateAssignment: FC = (props) => (
   <Create {...props}>
     <SimpleForm>
         <DateInput source="PrazoEntrega" />
-        <TextInput source="status" />
+        <SelectInput source="status" choices={[
+          { id: "doing", name: "Fazendo"},
+          { id: "done", name: "Feito"},
+          { id: "paused", name: "Pausado"},
+          { id: "canceled", name: "Cancelado"},
+          { id: "not_started", name: "Não começado"},
+        ]} />
         <TextInput source="Descricao" />
         <ReferenceArrayInput source="responsavel" reference="users">
             <SelectArrayInput optionText="username" />

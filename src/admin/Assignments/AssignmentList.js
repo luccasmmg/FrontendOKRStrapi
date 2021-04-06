@@ -5,6 +5,7 @@ import {
     TextField,
     DateField,
     DeleteButton,
+    SelectField,
 } from 'react-admin';
 
 export const AssignmentList: FC = (props) => (
@@ -12,9 +13,15 @@ export const AssignmentList: FC = (props) => (
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <DateField source="PrazoEntrega" />
-      <TextField source="status" />
+      <SelectField source="status" choices={[
+        { id: "doing", name: "Fazendo"},
+        { id: "done", name: "Feito"},
+        { id: "paused", name: "Pausado"},
+        { id: "canceled", name: "Cancelado"},
+        { id: "not_started", name: "Não começado"},
+      ]} />
       <TextField source="Descricao" />
-      <TextField source="responsavel.username" />
+      <TextField label="Responsável" source="responsavel.username" />
       <DeleteButton label="Deletar" />
     </Datagrid>
   </List>
