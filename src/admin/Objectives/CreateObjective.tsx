@@ -6,6 +6,7 @@ import {
   DateInput,
   NumberInput,
   ReferenceArrayInput,
+  SelectInput,
   SelectArrayInput
 } from 'react-admin';
 
@@ -17,7 +18,10 @@ export const CreateObjective: FC = (props) => (
         <DateInput source="DataInicio" />
         <DateInput source="DataFim" />
         <ReferenceArrayInput source="responsavel" reference="users">
-          <SelectArrayInput optionText="username" />
+          <SelectInput optionText="username" />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput source="Tags" reference="tags">
+          <SelectArrayInput optionText="Nome" />
         </ReferenceArrayInput>
       </SimpleForm>
     </Create>

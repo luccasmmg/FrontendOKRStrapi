@@ -4,18 +4,23 @@ import {
     SimpleForm,
     TextInput,
     ReferenceArrayInput,
-    SelectArrayInput
+    SelectArrayInput,
+    SelectInput,
 } from 'react-admin';
 
 export const CreateKeyResult: FC = (props) => (
   <Create {...props}>
     <SimpleForm>
-        <TextInput source="id" />
-        <TextInput source="objetivo" />
         <TextInput source="nome" />
         <TextInput source="descricao" />
         <ReferenceArrayInput source="responsavel" reference="users">
-            <SelectArrayInput optionText="username" />
+            <SelectInput optionText="username" />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput source="objetivo" reference="objetivos">
+            <SelectInput optionText="Nome" />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput source="Tags" reference="tags">
+          <SelectArrayInput optionText="Nome" />
         </ReferenceArrayInput>
     </SimpleForm>
   </Create>

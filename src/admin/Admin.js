@@ -6,6 +6,7 @@ import authProvider from './authProvider';
 import { ObjectivesList, CreateObjective, EditObjective } from './Objectives';
 import { KeyResultList, CreateKeyResult, EditKeyResult } from './KeyResults';
 import { AssignmentList, CreateAssignment, EditAssignment } from './Assignments';
+import { TagList, CreateTag, EditTag } from './Tags';
 
 const httpClient = (url: any, options: any) => {
   if (!options) {
@@ -41,6 +42,12 @@ export const Admin: FC = () => {
             list={AssignmentList}
             create={CreateAssignment}
             edit={EditAssignment}
+        />
+        <Resource
+            name="tags"
+            list={TagList}
+            create={CreateTag}
+            edit={EditTag}
         />
         <Resource
             name="users"

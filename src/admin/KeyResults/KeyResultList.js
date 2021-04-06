@@ -3,8 +3,6 @@ import {
     List,
     Datagrid,
     TextField,
-    DateField,
-    EditButton,
     DeleteButton
 } from 'react-admin';
 
@@ -25,7 +23,7 @@ export const KeyResultList: FC = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit" expand={<ListOfAssignments />}>
       <TextField source="id" />
-      <TextField source="objetivo" />
+      <TextField source="objetivo.Nome" />
       <TextField source="nome" />
       <TextField source="descricao" />
       <TextField source="responsavel.username" />
