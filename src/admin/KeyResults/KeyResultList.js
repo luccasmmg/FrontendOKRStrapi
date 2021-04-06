@@ -3,7 +3,8 @@ import {
     List,
     Datagrid,
     TextField,
-    DeleteButton
+    DeleteButton,
+    useGetList
 } from 'react-admin';
 
 const ListOfAssignments: FC<Props> = ({id, record, resource}) => {
@@ -19,6 +20,15 @@ const ListOfAssignments: FC<Props> = ({id, record, resource}) => {
     )
 }
 
+const Tags = ({ record }) => {
+  const { data, loaded } = useGetList("tags");
+  if (!loaded) return <span>Loading</span>
+  const tagNames = loaded && record.Tags ? Object.values(data).filter(tag => record.Tags.includes(tag.id)).map(tag => tag.Nome).join(",") : "Sem tags"
+  return (
+    <p>{tagNames}</p>
+  )
+}
+
 export const KeyResultList: FC = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit" expand={<ListOfAssignments />}>
@@ -27,6 +37,7 @@ export const KeyResultList: FC = (props) => (
       <TextField source="nome" />
       <TextField source="descricao" />
       <TextField source="responsavel.username" />
+      <Tags source="Tags" />
       <DeleteButton label="Deletar" />
     </Datagrid>
   </List>

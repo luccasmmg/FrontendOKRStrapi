@@ -4,7 +4,6 @@ import {
     SimpleForm,
     TextInput,
     DateInput,
-    EditButton,
     ReferenceArrayInput,
     SelectArrayInput
 } from 'react-admin';

@@ -1,15 +1,11 @@
-import React, { FC } from 'react';
 import {
     Edit,
     SimpleForm,
     TextInput,
     DateInput,
-    NumberInput,
-    ReferenceInput,
-    SelectArrayInput
 } from 'react-admin';
 
-export const EditObjective: FC = (props) => (
+export const EditObjective = (props) => (
     <Edit {...props} title="Editar Objetivo">
       <SimpleForm>
         <TextInput source="Nome" />

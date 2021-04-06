@@ -1,4 +1,3 @@
-import React, { FC } from 'react';
 import {
     Create,
     SimpleForm,
@@ -8,7 +7,7 @@ import {
     SelectInput,
 } from 'react-admin';
 
-export const CreateKeyResult: FC = (props) => (
+export const CreateKeyResult = (props) => (
   <Create {...props}>
     <SimpleForm>
         <TextInput source="nome" />
