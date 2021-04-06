@@ -5,6 +5,7 @@ import authProvider from './authProvider';
 
 import { ObjectivesList, CreateObjective, EditObjective } from './Objectives';
 import { KeyResultList, CreateKeyResult, EditKeyResult } from './KeyResults';
+import { AssignmentList, CreateAssignment, EditAssignment } from './Assignments';
 
 const httpClient = (url: any, options: any) => {
   if (!options) {
@@ -37,6 +38,9 @@ export const Admin: FC = () => {
         />
         <Resource
             name="tarefas"
+            list={AssignmentList}
+            create={CreateAssignment}
+            edit={EditAssignment}
         />
         <Resource
             name="users"

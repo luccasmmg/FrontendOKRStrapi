@@ -4,7 +4,8 @@ import {
     Datagrid,
     TextField,
     DateField,
-    EditButton
+    EditButton,
+    DeleteButton
 } from 'react-admin';
 
 const ListOfAssignments: FC<Props> = ({id, record, resource}) => {
@@ -22,13 +23,13 @@ const ListOfAssignments: FC<Props> = ({id, record, resource}) => {
 
 export const KeyResultList: FC = (props) => (
   <List {...props}>
-    <Datagrid expand={<ListOfAssignments />}>
+    <Datagrid rowClick="edit" expand={<ListOfAssignments />}>
       <TextField source="id" />
       <TextField source="objetivo" />
       <TextField source="nome" />
       <TextField source="descricao" />
       <TextField source="responsavel.username" />
-      <EditButton />
+      <DeleteButton label="Deletar" />
     </Datagrid>
   </List>
 );
