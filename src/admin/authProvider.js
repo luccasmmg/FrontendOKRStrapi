@@ -26,7 +26,7 @@ const authProvider = {
   },
   logout: () => {
     localStorage.removeItem('token');
-    return Promise.resolve();
+    return Promise.resolve("/login");
   },
   checkError: (error: { status: number }) => {
     const status = error.status;

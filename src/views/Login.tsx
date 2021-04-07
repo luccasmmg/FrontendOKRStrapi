@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import novaLogo from "../novaLogo.png";
 import {
   Paper,
   Grid,
@@ -59,6 +60,11 @@ export const Login: FC = () => {
   ) : (
     <Paper className={classes.padding}>
       <div className={classes.margin}>
+        <Grid container spacing={8} justify="center" alignItems="center">
+          <Grid item md={true} sm={true} xs={true}>
+            <img src={novaLogo} alt="Nova Logo" />
+          </Grid>
+        </Grid>
         <Grid container spacing={8} alignItems="flex-end">
           <Grid item>
             <Face />

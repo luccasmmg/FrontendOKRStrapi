@@ -42,6 +42,7 @@ export const Routes: FC = () => {
             }}
           />
           <Route exact path="/" component={Login} />
+          <Route path="/login" component={Login} />
         </header>
       </div>
     </Switch>

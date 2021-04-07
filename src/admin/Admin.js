@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { fetchUtils, Admin as ReactAdmin, Resource } from 'react-admin';
+import { fetchUtils, Admin as ReactAdmin, Resource, Layout } from 'react-admin';
 import simpleRestProvider from 'ra-strapi-rest';
 import authProvider from './authProvider';
 
@@ -7,6 +7,8 @@ import { ObjectivesList, CreateObjective, EditObjective } from './Objectives';
 import { KeyResultList, CreateKeyResult, EditKeyResult } from './KeyResults';
 import { AssignmentList, CreateAssignment, EditAssignment } from './Assignments';
 import { TagList, CreateTag, EditTag } from './Tags';
+import { Login } from '../views';
+import MyAppBar from './MyAppBar';
 
 const httpClient = (url: any, options: any) => {
   if (!options) {
@@ -22,9 +24,14 @@ const httpClient = (url: any, options: any) => {
 
 const dataProvider = simpleRestProvider('', httpClient);
 
+const MyLayout = props => <Layout
+    {...props}
+    appBar={MyAppBar}
+/>;
+
 export const Admin: FC = () => {
   return (
-    <ReactAdmin dataProvider={dataProvider} authProvider={authProvider}>
+    <ReactAdmin layout={MyLayout} loginPage={Login} dataProvider={dataProvider} authProvider={authProvider}>
         <Resource
             name="objetivos"
             list={ObjectivesList}
