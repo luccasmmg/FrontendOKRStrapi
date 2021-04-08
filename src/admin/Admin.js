@@ -9,6 +9,7 @@ import { AssignmentList, CreateAssignment, EditAssignment } from './Assignments'
 import { TagList, CreateTag, EditTag } from './Tags';
 import { Login } from '../views';
 import MyAppBar from './MyAppBar';
+import BASE_URL from '../config';
 
 const httpClient = (url: any, options: any) => {
   if (!options) {
@@ -22,7 +23,7 @@ const httpClient = (url: any, options: any) => {
   return fetchUtils.fetchJson(url, options);
 };
 
-const dataProvider = simpleRestProvider('', httpClient);
+const dataProvider = simpleRestProvider(`${BASE_URL}`, httpClient);
 
 const MyLayout = props => <Layout
     {...props}

@@ -18,6 +18,16 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(2),
   },
+  header: {
+    backgroundColor: '#282c34',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 'calc(10px + 2vmin)',
+    color: 'white',
+  },
   padding: {
     padding: theme.spacing(1),
   },
@@ -58,6 +68,7 @@ export const Login: FC = () => {
   return isAuthenticated() ? (
     <Redirect to="/admin" />
   ) : (
+    <header className={classes.header}>
     <Paper className={classes.padding}>
       <div className={classes.margin}>
         <Grid container spacing={8} justify="center" alignItems="center">
@@ -129,5 +140,6 @@ export const Login: FC = () => {
         </Grid>
       </div>
     </Paper>
+    </header>
   );
 };

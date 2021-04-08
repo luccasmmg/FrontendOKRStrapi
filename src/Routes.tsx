@@ -24,14 +24,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Routes: FC = () => {
-  const classes = useStyles();
   const history = useHistory();
 
   return (
     <Switch>
       <Route path="/admin"><Admin /></Route>
-      <div className={classes.app}>
-        <header className={classes.header}>
+      <div>
+        <header>
           <Route path="/login" component={Admin} />
           <Route
             path="/logout"

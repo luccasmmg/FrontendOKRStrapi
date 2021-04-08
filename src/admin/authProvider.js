@@ -1,3 +1,5 @@
+import BASE_URL from "../config";
+
 type loginFormType = {
   username: string;
   password: string;
@@ -8,7 +10,7 @@ const authProvider = {
     let formData = new FormData();
     formData.append('identifier', username);
     formData.append('password', password);
-    const request = new Request('/auth/local', {
+    const request = new Request(`${BASE_URL}/auth/local`, {
       method: 'POST',
       body: formData,
     });
