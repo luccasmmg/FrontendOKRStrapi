@@ -1,4 +1,3 @@
-import SelectInput from '@material-ui/core/Select/SelectInput';
 import React, { FC } from 'react';
 import {
     Create,
@@ -6,7 +5,8 @@ import {
     TextInput,
     DateInput,
     ReferenceArrayInput,
-    SelectArrayInput
+    SelectArrayInput,
+    SelectInput,
 } from 'react-admin';
 
 export const CreateAssignment: FC = (props) => (
@@ -20,7 +20,7 @@ export const CreateAssignment: FC = (props) => (
           { id: "canceled", name: "Cancelado"},
           { id: "not_started", name: "Não começado"},
         ]} />
-        <TextInput source="Descricao" />
+        <TextInput multiline source="Descricao" />
         <ReferenceArrayInput source="responsavel" reference="users">
             <SelectArrayInput optionText="username" />
         </ReferenceArrayInput>

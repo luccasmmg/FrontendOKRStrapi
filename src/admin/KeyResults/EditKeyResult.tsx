@@ -1,10 +1,11 @@
+import React, { FC } from 'react';
 import {
     Edit,
     SimpleForm,
     TextInput,
 } from 'react-admin';
 
-export const EditKeyResult = (props) => {
+export const EditKeyResult: FC = (props) => {
     return (
     <Edit {...props}>
         <SimpleForm>

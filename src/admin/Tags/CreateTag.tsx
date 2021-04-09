@@ -7,7 +7,7 @@ import {
 
 export const CreateTag: FC = (props) => (
   <Create {...props}>
-    <SimpleForm>
+    <SimpleForm redirect={false}>
       <TextInput source="Nome" />
     </SimpleForm>
   </Create>

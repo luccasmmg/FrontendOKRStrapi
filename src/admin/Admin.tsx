@@ -8,7 +8,10 @@ import { KeyResultList, CreateKeyResult, EditKeyResult } from './KeyResults';
 import { AssignmentList, CreateAssignment, EditAssignment } from './Assignments';
 import { TagList, CreateTag, EditTag } from './Tags';
 import { Login } from '../views';
+
 import MyAppBar from './MyAppBar';
+import MyDashboard from './MyDashboard';
+
 import BASE_URL from '../config';
 
 const httpClient = (url: any, options: any) => {
@@ -32,7 +35,7 @@ const MyLayout = props => <Layout
 
 export const Admin: FC = () => {
   return (
-    <ReactAdmin layout={MyLayout} loginPage={Login} dataProvider={dataProvider} authProvider={authProvider}>
+    <ReactAdmin layout={MyLayout} dashboard={MyDashboard} loginPage={Login} dataProvider={dataProvider} authProvider={authProvider}>
         <Resource
             name="objetivos"
             list={ObjectivesList}

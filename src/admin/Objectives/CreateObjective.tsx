@@ -13,7 +13,7 @@ export const CreateObjective: FC = (props) => (
     <Create {...props} title="Criar Objetivo">
       <SimpleForm>
         <TextInput source="Nome" />
-        <TextInput source="Descricao" />
+        <TextInput multiline source="Descricao" />
         <DateInput source="DataInicio" />
         <DateInput source="DataFim" />
         <ReferenceArrayInput source="responsavel" reference="users">
