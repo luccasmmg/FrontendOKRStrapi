@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { fetchUtils, Admin as ReactAdmin, Resource, Layout } from 'react-admin';
-import simpleRestProvider from 'ra-strapi-rest';
+import raStrapiRest from './ra-strapi-rest';
 import authProvider from './authProvider';
 
-import { ObjectivesList, CreateObjective, EditObjective } from './Objectives';
+import { ObjectivesList, CreateObjective, EditObjective, ShowObjective } from './Objectives';
 import { KeyResultList, CreateKeyResult, EditKeyResult } from './KeyResults';
 import { AssignmentList, CreateAssignment, EditAssignment } from './Assignments';
 import { TagList, CreateTag, EditTag } from './Tags';
@@ -26,7 +26,7 @@ const httpClient = (url: any, options: any) => {
   return fetchUtils.fetchJson(url, options);
 };
 
-const dataProvider = simpleRestProvider(`${BASE_URL}`, httpClient);
+const dataProvider = raStrapiRest(`${BASE_URL}`, httpClient);
 
 const MyLayout = props => <Layout
     {...props}
@@ -41,6 +41,7 @@ export const Admin: FC = () => {
             list={ObjectivesList}
             create={CreateObjective}
             edit={EditObjective}
+            show={ShowObjective}
         />
         <Resource
             name="resultado-chaves"

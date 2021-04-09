@@ -4,21 +4,12 @@ import {
     Datagrid,
     TextField,
     DeleteButton,
-    useGetList
+    useGetList,
+    ReferenceManyField,
+    SingleFieldList,
+    ChipField
 } from 'react-admin';
-
-const ListOfAssignments: FC<Props> = ({id, record, resource}) => {
-    return(
-      <ul>
-        {record.tarefas.map(tarefa => (
-            <li>
-              <h3>{tarefa.id}</h3>
-              <p>{tarefa.Descricao}</p>
-            </li>
-        ))}
-      </ul>
-    )
-}
+import { ShowKeyResult } from './ShowKeyResult';
 
 const Tags = ({ record }: any) => {
   const { data, loaded } = useGetList("tags");
@@ -31,7 +22,7 @@ const Tags = ({ record }: any) => {
 
 export const KeyResultList: FC = (props) => (
   <List {...props}>
-    <Datagrid rowClick="edit" expand={<ListOfAssignments />}>
+    <Datagrid rowClick="edit" expand={<ShowKeyResult />}>
       <TextField source="id" />
       <TextField label="Objetivo" source="objetivo.Nome" />
       <TextField source="nome" />

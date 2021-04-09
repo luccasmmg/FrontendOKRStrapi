@@ -16,7 +16,7 @@ export const CreateObjective: FC = (props) => (
         <TextInput multiline source="Descricao" />
         <DateInput source="DataInicio" />
         <DateInput source="DataFim" />
-        <ReferenceArrayInput source="responsavel" reference="users">
+        <ReferenceArrayInput source="responsavelObjetivo" reference="users">
           <SelectInput optionText="username" />
         </ReferenceArrayInput>
         <ReferenceArrayInput source="Tags" reference="tags">

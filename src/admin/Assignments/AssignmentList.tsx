@@ -6,6 +6,7 @@ import {
     DateField,
     DeleteButton,
     SelectField,
+    ReferenceField,
 } from 'react-admin';
 
 export const AssignmentList: FC = (props) => (
@@ -21,6 +22,9 @@ export const AssignmentList: FC = (props) => (
         { id: "not_started", name: "Não começado"},
       ]} />
       <TextField source="Descricao" />
+      <ReferenceField label="Resultado Chave" source="resultado_chave" reference="resultado-chaves">
+        <TextField source="nome" />
+      </ReferenceField>
       <TextField label="Responsável" source="responsavel.username" />
       <DeleteButton label="Deletar" />
     </Datagrid>
