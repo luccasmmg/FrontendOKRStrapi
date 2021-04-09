@@ -4,8 +4,7 @@ import {
     SimpleForm,
     TextInput,
     DateInput,
-    ReferenceArrayInput,
-    SelectArrayInput,
+    ReferenceInput,
     SelectInput,
 } from 'react-admin';
 
@@ -21,12 +20,12 @@ export const CreateAssignment: FC = (props) => (
           { id: "not_started", name: "Não começado"},
         ]} />
         <TextInput multiline source="Descricao" />
-        <ReferenceArrayInput source="responsavel" reference="users">
-            <SelectArrayInput optionText="username" />
-        </ReferenceArrayInput>
-        <ReferenceArrayInput source="resultado_chave" reference="resultado-chaves">
-            <SelectArrayInput optionText="nome" />
-        </ReferenceArrayInput>
+        <ReferenceInput source="responsavel" reference="users">
+            <SelectInput optionText="username" />
+        </ReferenceInput>
+        <ReferenceInput source="resultado_chave" reference="resultado-chaves">
+            <SelectInput optionText="nome" />
+        </ReferenceInput>
     </SimpleForm>
   </Create>
 );
