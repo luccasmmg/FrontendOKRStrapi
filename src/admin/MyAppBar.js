@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from 'react-admin';
+import { AppBar } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Logo from '../novaLogo.png';

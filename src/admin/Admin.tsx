@@ -13,6 +13,7 @@ import MyAppBar from './MyAppBar';
 import MyDashboard from './MyDashboard';
 
 import BASE_URL from '../config';
+import { CreateUser, UserList } from './Users';
 
 const httpClient = (url: any, options: any) => {
   if (!options) {
@@ -28,7 +29,7 @@ const httpClient = (url: any, options: any) => {
 
 const dataProvider = raStrapiRest(`${BASE_URL}`, httpClient);
 
-const MyLayout = props => <Layout
+const MyLayout: FC = (props) => <Layout
     {...props}
     appBar={MyAppBar}
 />;
@@ -36,6 +37,11 @@ const MyLayout = props => <Layout
 export const Admin: FC = () => {
   return (
     <ReactAdmin layout={MyLayout} dashboard={MyDashboard} loginPage={Login} dataProvider={dataProvider} authProvider={authProvider}>
+        <Resource
+          name="users"
+          create={CreateUser}
+          list={UserList}
+        />
         <Resource
             name="objetivos"
             list={ObjectivesList}
@@ -60,9 +66,6 @@ export const Admin: FC = () => {
             list={TagList}
             create={CreateTag}
             edit={EditTag}
-        />
-        <Resource
-            name="users"
         />
     </ReactAdmin>
   );

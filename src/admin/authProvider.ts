@@ -19,15 +19,17 @@ const authProvider = {
         if (response.status < 200 || response.status >= 300) {
           throw new Error(response.statusText);
         }
+        console.log(response.json())
         return response.json();
       })
-      .then(({ jwt }) => {
-        console.log(jwt);
+      .then(({ jwt, user }) => {
         localStorage.setItem('token', jwt);
+        localStorage.setItem('permissions', user.role.roleName);
       });
   },
   logout: () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('permissions');
     return Promise.resolve("/login");
   },
   checkError: (error: { status: number }) => {
@@ -41,7 +43,7 @@ const authProvider = {
   checkAuth: () =>
     localStorage.getItem('token') ? Promise.resolve() : Promise.reject(),
   getPermissions: () => {
-    const role = 'admin'
+    const role = localStorage.getItem('permissions')
     return role ? Promise.resolve(role) : Promise.reject();
   },
 };

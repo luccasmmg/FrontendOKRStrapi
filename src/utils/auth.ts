@@ -46,8 +46,9 @@ export const login = async (email: string, password: string) => {
     throw data;
   }
 
-  if ('jwt' in data) {
+  if ('jwt' in data && "user" in data) {
     localStorage.setItem('token', data['jwt']);
+    localStorage.setItem('permissions', data["user"]["role"]["name"]);
   }
 
   return data;

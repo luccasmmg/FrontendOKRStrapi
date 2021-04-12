@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { SimpleShowLayout, Tab, Show, TextField, DateField, ReferenceManyField, DeleteButton, EditButton, Datagrid, SelectField } from 'react-admin'
+import { Show, TextField, DateField, ReferenceManyField, DeleteButton, EditButton, Datagrid, SelectField } from 'react-admin'
 
 export const ShowKeyResult: FC = (props) => (
     <Show {...props} actions={false} >

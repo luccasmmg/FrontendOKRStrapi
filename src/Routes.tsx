@@ -1,27 +1,10 @@
 import React, { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import { makeStyles } from '@material-ui/core/styles';
 
 import { Login } from './views';
 import { Admin } from './admin';
 import { logout } from './utils/auth';
-
-const useStyles = makeStyles((theme) => ({
-  app: {
-    textAlign: 'center',
-  },
-  header: {
-    backgroundColor: '#282c34',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 'calc(10px + 2vmin)',
-    color: 'white',
-  },
-}));
 
 export const Routes: FC = () => {
   const history = useHistory();

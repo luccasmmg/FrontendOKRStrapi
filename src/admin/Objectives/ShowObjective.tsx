@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { SimpleShowLayout, Tab, Show, TextField, DateField, ReferenceManyField, DeleteButton, EditButton, Datagrid } from 'react-admin'
+import { Show, TextField, ReferenceManyField, DeleteButton, EditButton, Datagrid } from 'react-admin'
 import { Tags } from './Tag'
 
 export const ShowObjective: FC = (props) => {

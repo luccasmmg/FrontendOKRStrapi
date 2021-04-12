@@ -5,9 +5,6 @@ import {
     TextField,
     DeleteButton,
     useGetList,
-    ReferenceManyField,
-    SingleFieldList,
-    ChipField
 } from 'react-admin';
 import { ShowKeyResult } from './ShowKeyResult';
 
