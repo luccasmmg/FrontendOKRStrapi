@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Show, TextField, DateField, ReferenceManyField, DeleteButton, EditButton, Datagrid, SelectField } from 'react-admin'
+import { Show, TextField, DateField, ReferenceManyField, DeleteButton, EditButton, Datagrid, SelectField, ReferenceField } from 'react-admin'
 
 export const ShowKeyResult: FC = (props) => (
     <Show {...props} actions={false} >
@@ -15,7 +15,9 @@ export const ShowKeyResult: FC = (props) => (
                     { id: "not_started", name: "Não começado"},
                 ]} />
                 <TextField source="Descricao" />
-                <TextField label="Responsável" source="responsavel.username" />
+                <ReferenceField label="Responsável" source="responsavel.id" reference="users">
+                    <TextField source="username" />
+                </ReferenceField>
                 <DeleteButton label="Deletar" />
                 <EditButton label="Editar" />
             </Datagrid>

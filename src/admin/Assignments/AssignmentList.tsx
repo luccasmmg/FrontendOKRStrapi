@@ -25,7 +25,9 @@ export const AssignmentList: FC = (props) => (
       <ReferenceField label="Resultado Chave" source="resultado_chave" reference="resultado-chaves">
         <TextField source="nome" />
       </ReferenceField>
-      <TextField label="Responsável" source="responsavel.username" />
+      <ReferenceField label="Responsável" source="responsavel.id" reference="users">
+        <TextField source="username" />
+      </ReferenceField>
       <DeleteButton label="Deletar" />
     </Datagrid>
   </List>

@@ -4,7 +4,7 @@ import { Title } from 'react-admin';
 const MyDashboard = () => (
     <Card>
         <Title title="Bem vindo" />
-        <CardContent>Bem vindo ao sistema de OKR da Nova - Gestão Empresarial</CardContent>
+        <CardContent>Bem vindo ao sistema de OKR da XXXX - Gestão Empresarial</CardContent>
     </Card>
 );
 

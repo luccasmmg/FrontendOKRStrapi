@@ -5,6 +5,7 @@ import {
     TextField,
     DateField,
     DeleteButton,
+    ReferenceField,
 } from 'react-admin';
 import { ShowObjective } from "./ShowObjective";
 import { Tags } from "./Tag";
@@ -17,7 +18,9 @@ export const ObjectivesList: FC = (props) => (
         <TextField source="Descricao" />
         <DateField source="DataInicio" />
         <DateField source="DataFim" />
-        <TextField label="Responsável por objetivo" source="responsavelObjetivo.username" />
+        <ReferenceField label="Responsável por objetivo" source="responsavelObjetivo" reference="users">
+          <TextField source="username" />
+        </ReferenceField>
         <Tags source="Tags" />
         <DeleteButton label="Deletar" />
       </Datagrid>

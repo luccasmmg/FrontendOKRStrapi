@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Show, TextField, ReferenceManyField, DeleteButton, EditButton, Datagrid } from 'react-admin'
+import { Show, TextField, ReferenceManyField, DeleteButton, EditButton, Datagrid, ReferenceField } from 'react-admin'
 import { Tags } from './Tag'
 
 export const ShowObjective: FC = (props) => {
@@ -8,8 +8,12 @@ export const ShowObjective: FC = (props) => {
             <Datagrid>
                 <TextField source="nome" />
                 <TextField source="descricao" />
-                <TextField label="Objetivo" source="objetivo.Nome" />
-                <TextField label="Responsável" source="responsavel.username" />
+                <ReferenceField label="Objetivo" source="objetivo" reference="objetivos">
+                    <TextField source="Nome" />
+                </ReferenceField>
+                <ReferenceField label="Responsável" source="responsavel" reference="users">
+                    <TextField source="username" />
+                </ReferenceField>
                 <Tags source="Tags" />
                 <DeleteButton label="Deletar" />
                 <EditButton label="Editar" />

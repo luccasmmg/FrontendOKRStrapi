@@ -5,6 +5,7 @@ import {
     TextField,
     DeleteButton,
     useGetList,
+    ReferenceField,
 } from 'react-admin';
 import { ShowKeyResult } from './ShowKeyResult';
 
@@ -21,10 +22,14 @@ export const KeyResultList: FC = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit" expand={<ShowKeyResult />}>
       <TextField source="id" />
-      <TextField label="Objetivo" source="objetivo.Nome" />
+      <ReferenceField label="Objetivo" source="objetivo" reference="objetivos">
+        <TextField source="Nome" />
+      </ReferenceField>
       <TextField source="nome" />
       <TextField source="descricao" />
-      <TextField label="Responsável" source="responsavel.username" />
+      <ReferenceField label="Responsável" source="responsavel" reference="users">
+        <TextField source="username" />
+      </ReferenceField>
       <Tags source="Tags" />
       <DeleteButton label="Deletar" />
     </Datagrid>

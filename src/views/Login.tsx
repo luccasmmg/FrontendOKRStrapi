@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import novaLogo from "../novaLogo.png";
+import logo from "../logo.svg";
 import {
   Paper,
   Grid,
@@ -74,7 +74,7 @@ export const Login: FC = () => {
         <Grid container spacing={8} justify="center" alignItems="center">
           <Grid item justify="center" md={true} sm={true} xs={true}>
             <Grid container justify="center">
-              <img src={novaLogo} alt="Nova Logo" />
+              <img src={logo} alt="Nova Logo" />
             </Grid>
           </Grid>
         </Grid>
